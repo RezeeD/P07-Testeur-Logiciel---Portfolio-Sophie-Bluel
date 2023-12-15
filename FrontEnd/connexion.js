@@ -1,20 +1,5 @@
 const btnConnexion = document.getElementById("login-validation");
 
-
-async function verifLogin(reponse) {
-
-    const errorLogin = document.getElementById("error-login");
-
-    if (reponse.ok !== false) {
-
-
-        window.location.href = "index.html"
-    } else {
-        errorLogin.innerText = `Erreur dans l’identifiant ou le mot de passe`
-    }
-}
-
-
 btnConnexion.addEventListener("click", async (event) => {
     event.preventDefault();
     let email = document.getElementById("email-info").value;
@@ -31,12 +16,21 @@ btnConnexion.addEventListener("click", async (event) => {
         body: JSON.stringify({email: email, password: password})
     })
 
-    let reponse1 = await response.json()
+    const errorLogin = document.getElementById("error-login");
+    let reponseLogin = await response.json()
+    let token = reponseLogin.token
 
-    console.log(reponse1.token)
-})
+    console.log(token)
 
-btnConnexion.addEventListener("submit", (event) => {
+    if (response.ok !== false) {
+
+        localStorage.setItem("token", token);
+
+        window.location.href = "index.html";
+
+    } else {
+        errorLogin.innerText = `Erreur dans l’identifiant ou le mot de passe`
+    }
 
 
 })

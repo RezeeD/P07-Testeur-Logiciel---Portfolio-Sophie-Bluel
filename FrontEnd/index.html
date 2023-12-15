@@ -11,15 +11,20 @@
     <meta content="" name="description">
     <link href="./assets/style.css" rel="stylesheet">
     <script defer src="gallery.js" type="module"></script>
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/b87c45ecb7.js"></script>
 </head>
 <body>
+<div class="edition-mode-btn js-edition-mode" style="display: none">
+    <p> Mode édition</p>
+    <i class="fa-regular fa-pen-to-square"></i>
+</div>
 <header>
     <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
     <nav>
         <ul>
             <li>projets</li>
             <li>contact</li>
-            <li><a href="connexion.html">login</a></li>
+            <li id="login"><a href="connexion.html">login</a></li>
             <li><img alt="Instagram" src="./assets/icons/instagram.png"></li>
         </ul>
     </nav>
@@ -41,12 +46,18 @@
         </article>
     </section>
     <section id="portfolio">
-        <h2>Mes Projets</h2>
+        <div id="edition-modal-button">
+            <h2>Mes Projets</h2>
+            <i class="fa-regular fa-pen-to-square js-edition-mode" style="display: none"></i>
+            <a class="js-edition-mode" style="display: none" >Modifier</a>
+            <aside></aside>
+        </div>
+           </div>
+        </div>
         <div id="filtre-portfolio">
         </div>
         <div class="gallery">
         </div>
-
     </section>
     <section id="contact">
         <h2>Contact</h2>
